@@ -1,0 +1,44 @@
+<html>
+<head>
+    <style>
+
+        .arrange{
+        
+            float: left;
+        }
+        .box1{
+            width:auto;
+            height:auto;
+            float: left;
+            border: 2px black solid;
+        }
+
+        #button{
+            background-color: royalblue;
+            border-color: royalblue;
+            color: white;
+            
+        }
+    </style>
+</head>
+    
+
+    <H1><%= username %>'s photos</H1>
+    <br>
+    <img src="/images/<%= userphoto %>"  style="width:inherit;height: 200px" ><br>
+    <div class="arrange">
+        <% all.forEach(function (a) { %>
+      <div class="box1">
+        <img src="/images/<%= a.Image %>"   style="width:inherit;height: 200px">
+    </div>
+    </div>
+
+
+
+    <% }) %>
+
+
+
+    
+
+</html>

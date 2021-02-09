@@ -1,0 +1,49 @@
+<html>
+<head>
+    <style>
+
+        .arrange{
+        
+            float: left;
+        }
+        .box1{
+            width:auto;
+            height:auto;
+            float: left;
+            border: 2px black solid;
+        }
+
+        #button{
+            background-color: royalblue;
+            border-color: royalblue;
+            color: white;
+            
+        }
+    </style>
+</head>
+    <H1><%= username %>'s photos</H1>
+    <form method="POST" action="/uploadphotos/<%= username %>/<%= userphoto %>"   enctype="multipart/form-data">
+        <input type="file" name="image" required  value="Choose image">
+        <input type="text" name="capt">
+        <input type="submit" value="Upload New">  
+    </form>
+    <br>
+  
+
+    <img src="/images/<%= userphoto %>"  style="width:inherit;height: 200px" ><br>
+    <div class="arrange">
+        <% all.forEach(function (a) { %>
+      <div class="box1">
+        <img src="/images/<%= a.Image %>"   style="width:inherit;height: 200px">
+        <form method=post action="/images/delete/<%= username %>/<%= userphoto %>/<%= a.Image %>"><input type=submit id="button" value="Delete"></form>
+      </div>
+    </div>
+
+
+
+    <% }) %>
+
+
+    
+
+</html>
