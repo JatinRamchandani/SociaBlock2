@@ -1,47 +1,110 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <style type="text/css">
-          
-          table{
-            margin-top: 10%;
-            margin-left: 15%;
-            position: absolute;
+          body{
+          /* background-color: rgb(238, 238, 238); */
+          background-color: #013A6B;
+          background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%);
+          min-height: 500px;
+      }
+        
+
+        .toFill{
+            background-color: royalblue;
+            padding-top: 200px;
+            padding-right: 20px;
             
         }
         
-        .a1{
-            background-color:rgb(40, 89, 238);
+        table{
+            margin-top: 10%;
+            margin-left: 15%;
+            position: relative;
             
-            width:100%;
         }
-        .input{
-            font-family:Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            font-size: medium;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            border-style:dashed;
-            border-color: royalblue;
-            padding: 10px;
-        }
-        #button{
-            background-color: royalblue;
-            color: white;
-        }
+        
         h1{
             font-family: Arial, Helvetica, sans-serif;
         }
+        .input{
+            font-family:sans-serif;
+            font-weight: bold;
+            font-size: medium;
+            border-radius: 5px;
+            border:1px  rgb(2, 38, 145) solid;
+            padding: 10px;
+            
+        }
+        #button{
+            background-color: royalblue;
+            border-color: royalblue;
+            color: white;
+            cursor:pointer;
+            margin-left: 20%;
+        }
+
+        #button:hover{
+            background-color:rgb(35, 68, 170);
+            border-color:rgb(35, 68, 170);
+            
+        }
+
+
+
+        .reg{
+            border-radius: 5px;
+            height: fit-content;
+            padding: 10px;
+            width: 30%;
+            transform: translate(110%, 25%);
+            position: relative;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
+            background-color: white;
+        }
+
+       form{
+        position: relative;
+        margin-left:24%;
+        margin-top: 2%;
+       }
+
+        /* .logo{
+            text-shadow:0 0 80px rgb(255, 8, 0),
+            0 0 160px rgb(255, 8, 0),
+            0 0 240px rgb(255, 8, 0);
+            animation: animate 5s linear infinite;
+        }
+        @keyframes animate {
+            0%
+            {
+                filter: hue-rotate(0deg);
+            }
+            100%
+            {
+                filter: hue-rotate(360deg);
+            }
+        } */
         </style>
+        <title>Login</title>
     </head>
     <body> 
-        <div class="a1">
-            <form action="/login" method="GET" class="from">
+
+        <div class="reg">
+            <h1 style="color:rgb(7, 28, 90);font-size: 50px;margin: 0 auto;text-align: center;" >SociaBlock</h1><br>
+            <form action="/wall" method="POST" >
+                <input type="email" name="Email" placeholder="Email" class="input"><br><br>
+                <input type=password name="Password" placeholder="password" class="input"><br><br><br>
+                <input type="submit" value="Sign In" class="input" id="button">
+                
+        </div>
+        <!-- <div class="a1">
+            <form action="/wall" method="POST" class="from">
                 <Table align="left" cellspacing=10 >
                     <tr>
                     
-                            <td rowspan="4" style="border-right: 2px solid black"><h1 style="color:rgb(7, 28, 90);font-size: 100px;padding-right: 40px;margin-top: 30%;">SociaBlock</h1></td>
+                            <td rowspan="4" style="border-right: 2px solid black"><h1 style="color:rgb(7, 28, 90);font-size: 100px;padding-right: 40px;margin-top: 30%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);">SociaBlock</h1></td>
 
                     </tr>
                     <tr>
@@ -58,10 +121,10 @@
                     </tr>
                 </Table>
             </form>
-        </div>
+        </div> -->
 
     </body>
 </html>
 
-<!--New Commit After changes-->
+<!--New Commit After changes--   :rgb(7, 28, 90) >
 

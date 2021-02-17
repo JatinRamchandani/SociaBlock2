@@ -1,13 +1,154 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow:hidden;
+        background-color:rgb(18, 67, 214);
+      }
 
+      body{
+        background-color: rgb(241, 241, 241);
+      }
+
+      li{
+        float: left;
+      }
+
+      li a{
+        display:block;
+        color:white;
+        text-align: center;
+        text-decoration: none;
+        padding:14px 16px;
+
+      }
+
+      li a:hover{
+        background-color: rgb(4, 39, 145);
+      }
+      .active {
+        background-color: #4CAF50;
+      }
+
+      .navtext{
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+      }
+
+      .arrange{
+        display:flex;
+        padding-top: 2em;
+      }
+
+      .box1{
+
+          width: 100%;
+          height:auto;
+          float:none;
+          padding:5px;
+          border-top-left-radius: 28px;
+          border: 1px rgba(19, 20, 20, 0.658) solid;
+          font-family: sans-serif;
+          font-weight:400;
+          background-color: white;
+          position: relative;
+        }
+
+
+      .box1 img{
+        max-width: 100%;
+      
+      }
+
+
+      
+
+
+      .email-display{
+        font-size: 16px;
+        font-weight: bold;
+        background-color: rgb(212, 211, 211);
+        margin-bottom: 6px;
+        width: fit-content;
+        padding:5px;
+        font-family: sans-serif;
+      }
+
+      #button{
+          background-color: royalblue;
+          border-color: royalblue;
+          color: white;
+          
+        }
+
+      .box1 button{
+        width: 33.33%;
+        font-family: sans-serif;
+        color:rgb(105, 102, 102);
+        background-color: white;
+        padding:1.5%;
+        border: none;
+        
+      }
+
+      .box1 button:hover{
+        background-color: rgb(212, 211, 211);
+      }
+
+      .allposts{
+        width: 50%;
+        height: fit-content;
+        
+      }
+    
+
+      table{
+        width: 100%;
+      } 
+
+    </style>
+</head>
+<body>
+
+  <div class="allposts">
     <% all.forEach(function (post) { %>
-    <table>
-        <tr>
-            <th><%= post.Id %> : </th>
-            <td><%= post.Post %></td>
-        </tr>
-    </table>
+        <div class="box1">
 
+            <table>
+              
+              <tr>
+                <td style="width:40px;"><img src="/images/<%= post.profilephoto %>"  style="width:inherit;height:40px;border-radius: 50%;" ><br></td>
+                <td><div class="email-display"> <%= post.Username %></div></td>
+              </tr>
+              <tr>
+                <td colspan=2><%= post.Post %></td>
+              </tr>
+              <tr>
+                <td colspan=2><img src="/images/<%= post.PostImage %>" alt=""></td>
+              </tr>
+              <tr>
+                <td colspan=2>
+              </td>
+              </tr>
+              <tr>
+                <td colspan="3"><hr><button>Like</button><button>Comment<button>Delete</button></td>
+              </tr>
+            </table>
+          </div>
+          <br>
+    
+    
+        <% }) %>
+      </div>
 
-    <% }) %>
+    
+</body>
 </html>

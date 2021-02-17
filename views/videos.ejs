@@ -1,0 +1,58 @@
+<html>
+<head>
+    <style>
+
+        .arrange{
+        
+            float: left;
+        }
+        .box1{
+            width:auto;
+            height:auto;
+            float: left;
+            border: 2px black solid;
+        }
+
+        #button{
+            background-color: royalblue;
+            border-color: royalblue;
+            color: white;
+            
+        }
+
+        video{
+            max-width: 70%;
+        }
+        H1{
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+    <H1>Videos</H1>
+    <form method="POST" action="/uploadvideos"   enctype="multipart/form-data">
+        <input type="file" name="video" required  value="Choose video" accept="video/*">
+        <input type="text" name="capt">
+        <input type="submit" value="Upload New">  
+    </form>
+    <br>
+  
+        <% all.forEach(function (a) { %>
+      <div class="box1">
+        <video controls>
+            <source src="/videos/<%= a.Video %>"   style="width:inherit;height:200px" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+          </video>
+          <form method=post action="/videos/delete/<%= a.Video %>"><input type=submit id="button" value="Delete"></form>
+  
+    </div>
+    </div>
+
+
+
+    <% }) %>
+
+
+    
+
+</html>

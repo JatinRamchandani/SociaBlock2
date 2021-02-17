@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Post</title>
-    <script>
-                function openNav() {
-        document.getElementById("myNav").style.width = "20%" ;
-        }
+<Html>
 
-        /* Close when someone clicks on the "x" symbol inside the overlay */
-        function closeNav() {
-        document.getElementById("myNav").style.width = "0%";
+    <head>
+     
+    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+
+        .results{
+          background-color: rgb(233, 232, 232);
+          width: 60%;
+          margin :0 auto;
+          height: 100%;
         }
-    </script>
-    <style>
+  
         ul {
             list-style-type: none;
             overflow:hidden;
@@ -30,7 +27,9 @@
             position: sticky;
             position: -webkit-sticky;
             top: 0;
-            z-index: 3;
+            z-index: 2;
+            margin: 0;
+           
         }
         .navtext{
             font-family: sans-serif;
@@ -194,17 +193,41 @@
             
         }
 
-    </style>
-</head>
+        .container{
+          height: fit-content;
+          position: relative;
+          overflow: auto;
+          padding: 1%;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+          border-radius: 5px;
+          margin: 0 auto;
+          width: 75%;
+          background-color: white;
+          
+        }
 
-<body>
+        img{
+          position: relative;
+          margin-top: 0;
+          margin-left: 0;
+          height:90px;
+          width:90px;
+          margin:auto
+        }
+
+        
 
 
-    <div class="Nav">
+        
+         </style>
+  
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      
         <ul>
-          <li><a href="/wall" class="navtext"  >SociaBlock</a></li>
+          <li><a href="/wall" class="navtext" >SociaBlock</a></li>
           <li><a href="/profile3" class="navtext">My Profile</a></li>
-          <li><a href="/addPosts" class="navtext"  id="active" >Add Post</a></li>
+          <li><a href="/addPosts" class="navtext" >Add Post</a></li>
           <li><a href="/logout" class="navtext" >Logout</a></li>
           <li style="float:right;" ><form action="/search" method="GET">
             <input type="submit" value="Search" class="searchbtn">
@@ -214,11 +237,38 @@
           </li>
    
         </ul>
-      </div><br><br>
-    <form action="/storePost" method="POST" enctype="multipart/form-data">
-        <textarea  name="Post" rows="20" cols="60" placeholder="Write here"></textarea><br>
-        <input type="file" name="image" accept="image/*" ><br><br>
-        <input type="submit" value="Add Post">
-    </form>
-</body>
-</html>
+      
+
+
+      <div class="results">
+       <% users.forEach(function (user) { %>
+        <br>
+       <a href="/openprofile/<%= user.Email%>">
+
+        <div class="container">
+          <img src="/images/<%= user.Profiles %>"/><span style=
+          "
+          position: absolute;
+          margin-left:20;
+          margin-top: 15px;
+          padding:10px;
+          font-size: 15px;
+          font-family: sans-serif;
+          color: black;
+          font-weight: bold;
+          "><%= user.FName %> <%= user.LName %><br>
+          <span style="font-family: sans-serif;color: rgb(128, 126, 126);font-size: 13px;"><%= user.Email %></span></span>
+        </div>
+      </a>
+            <% }) %>  
+
+
+          </div>
+  
+
+
+
+
+        
+      
+  </Html>

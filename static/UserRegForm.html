@@ -1,11 +1,29 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style type="text/css">
+
+      
+
+      body{
+          /* background-color: rgb(238, 238, 238); */
+          background-color: #013A6B;
+          background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%);
+          min-height: 500px;
+      }
+        
+
+        .toFill{
+            background-color: royalblue;
+            padding-top: 200px;
+            padding-right: 20px;
+            
+        }
         
         table{
             margin-top: 10%;
             margin-left: 15%;
-            position: absolute;
+            position: relative;
             
         }
         
@@ -13,93 +31,126 @@
             font-family: Arial, Helvetica, sans-serif;
         }
         .input{
-            font-family:Arial, Helvetica, sans-serif;
+            font-family:sans-serif;
             font-weight: bold;
             font-size: medium;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            border-style:dashed;
-            border-color: rgb(2, 38, 145);
+            border-radius: 5px;
+            border:1px  rgb(2, 38, 145) solid;
             padding: 10px;
+            
         }
         #button{
             background-color: royalblue;
             border-color: royalblue;
             color: white;
+            cursor:pointer;
+            margin-left: 12%;
         }
+
+        #button:hover{
+            background-color:rgb(35, 68, 170);
+            border-color:rgb(35, 68, 170);
+            
+        }
+
+
+
+        .reg{
+            border-radius: 5px;
+            height: fit-content;
+            padding: 10px;
+            width: 30%;
+            transform: translate(110%, 25%);
+            position: relative;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
+            background-color: white;
+        }
+
+       form{
+        position: relative;
+        margin-left:24%;
+        margin-top: 2%;
+       }
+
+
+        /* .logo{
+            text-shadow:0 0 80px rgb(255, 8, 0),
+            0 0 160px rgb(255, 8, 0),
+            0 0 240px rgb(255, 8, 0);
+            animation: animate 5s linear infinite;
+        }
+
+        
+        @keyframes animate {
+            0%
+            {
+                filter: hue-rotate(0deg);
+            }
+            100%
+            {
+                filter: hue-rotate(360deg);
+            }
+        } */
         </style>
     </head>
     <body> 
 
-    
-        <Table cellspacing="10"class="table">
 
-            
-            
-            
-            <tr>
-                <td rowspan="7" style="border-right: 2px solid black"><h1 style="color:rgb(7, 28, 90);font-size: 100px;padding-right: 40px;margin-top: 30%;">SociaBlock</h1></td>
-                <td> <form action="/signup" method="POST" id='form' >
-                <input type=text name="fname" placeholder="First Name" class="input"  required>
-                <input type="text" name="lname" placeholder="Last Name" class="input" required></td>  
-            </tr>
-           
-            <tr>
-                <td><input type="email" name="Email"placeholder="Email" class="input" required></td>
-            </tr>
-            <tr>
-                <td style="font-family: Arial, Helvetica, sans-serif;">DOB : <input type="date"  name="date" value="" class="input" required/></td>
-            </tr>
-            <tr>
-                <td><input type=password name="password" placeholder="Password" class="input" required> </td>
-            </tr>
-            <tr>
-                <td> <input type="submit" value="create account" class="input" id="button"> </form></td>
-                
-            </tr>
-            <tr>
-                <td> <a href="loginForm" style="font-family: Arial, Helvetica, sans-serif;" >Already have account? Login here</a></td>
-                
-            </tr>
-        </Table>
-      
+
+
+        <div class="reg">
+            <h1 style="color:rgb(7, 28, 90);font-size: 50px;margin: 0 auto;text-align: center;" >SociaBlock</h1>
+            <form action="/signup" method="POST"  >
+                <input type=text name="fname" placeholder="First Name" class="input"  required><br><br>
+                <input type="text" name="lname" placeholder="Last Name" class="input" required><br><br>
+                <input type="email" name="Email"placeholder="Email" class="input" required><br><br>
+                <span style="font-family: sans-serif;font-weight: bold;">DOB : </span><input type="date"  name="date" value="" class="input" required/><br><br>
+                <input type=password name="password" placeholder="Password" class="input" required><br><br><br>
+                <input type="submit" value="create account" class="input" id="button"><br><br>
+                <a href="loginForm" style="font-family: Arial, Helvetica, sans-serif;" >Already have account? Login here</a> 
+        </div>
+
+    
+        
+
+            <!-- <Table cellspacing="10"class="table"> 
+
+                <tr>
+                    <td rowspan="7" style="border-right: 2px solid black">
+                    <h1 style="color:rgb(7, 28, 90);font-size: 100px;padding-right: 20px;margin-top: 150px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);" >SociaBlock</h1></td>
+                    <td> <form action="/signup" method="POST" id='form' >
+                    <input type=text name="fname" placeholder="First Name" class="input"  required>
+                    <input type="text" name="lname" placeholder="Last Name" class="input" required></td>  
+                </tr>
                
+                <tr>
+                    <td><input type="email" name="Email"placeholder="Email" class="input" required></td>
+                </tr>
+                <tr>
+                    <td style="font-family: Arial, Helvetica, sans-serif;">DOB : <input type="date"  name="date" value="" class="input" required/></td>
+                </tr>
+                <tr>
+                    <td><input type=password name="password" placeholder="Password" class="input" required> </td>
+                </tr>
+                <tr>
+                    <td> <input type="submit" value="create account" class="input" id="button"> </form></td>
+                    
+                </tr>
+                <tr>
+                    <td> <a href="loginForm" style="font-family: Arial, Helvetica, sans-serif;" >Already have account? Login here</a></td>
+                    
+                </tr>
+            </Table> -->
+        
+            
+        
+      
+           
 
         <br>
-        <!-- <h1>Set Profile Picture</h1>
-        <Table cellspacing="10">
-            <tr>
-                <td><form method="POST" action="/upload"   enctype="multipart/form-data">
-                    <input type=email name="finder" placeholder="Email" class="input" required></td>
-            </tr>
-            <tr>
-                <td><input type="file" name="image"><input type="submit" value="upload" class="input" id="button"></form> </td>
-            </tr>
-        </Table> -->
-                  
 
-        <!-- <script src="https://ajax.googleapis.  com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(()=>{
-                $('#form').submit((e)=>{
-                    e.preventDefault();
-                    $.ajax({
-                        url:'/signup',
-                        type:'post',
-                        contentType:'application/json',
-                        data:JSON.stringify($('#form').serializeArray()),
-                        success:(response)=>{
-                            console.log('successuflly got response');
-                            console.log(response);
-                        }
-
-            });
-        })
-    })
-
-            </script> -->
+        
+       
         
     </body>
 </html>

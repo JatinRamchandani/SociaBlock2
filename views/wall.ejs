@@ -1,5 +1,7 @@
 <html>
     <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <style>
             ul {
         list-style-type: none;
@@ -7,6 +9,9 @@
         padding: 0;
         overflow:hidden;
         background-color:rgb(18, 67, 214);
+        position: sticky;
+        position: -webkit-sticky;
+        top:0;
       }
 
       li{
@@ -25,32 +30,67 @@
       li a:hover{
         background-color: rgb(4, 39, 145);
       }
-      .active {
-        background-color: #4CAF50;
+      #active {
+        background-color: rgb(4, 39, 145);
       }
 
       .navtext{
         font-family: Arial, Helvetica, sans-serif;
         color: white;
       }
+      @viewport {
+        width: device-width ;
+        zoom: 1.0 ;
+      }
+
+      .search{
+            float: right;
+            padding: 13px;
+            border: none;
+            margin-top: 0px;
+            font-size: 17px;
+            
+        }
+        .searchbtn{
+            float: right;
+            padding: 13px;
+            border: none;
+            margin-top: 0px;
+            font-size: 17px;
+            font-family: sans-serif;
+            cursor: pointer;
+        }
+
+      
         </style>
 
     </head>
-    <% username.forEach(function (user) { %>
-        <ul>
-            <li><a href="#" class="navtext">SociaBlock</a></li>
-            <li>   </li>
-            <li><a href="/login1/<%= user.Email %>/<%= user.Password %>" class="navtext">My Profile</a></li>
-            <li><a href="/addPosts" class="navtext">Add Post</a></li>
-        </ul>
-    <h1>Hi! <%= user.FName %></h1><br>
-    
-    
+    <body>
+      <% username.forEach(function (user) { %>
+        
+        <div class="Nav">
+          <ul>
+            <li><a href="/wall" class="navtext"  id="active" >SociaBlock</a></li>
+            <li><a href="/profile3" class="navtext">My Profile</a></li>
+            <li><a href="/addPosts" class="navtext" >Add Post</a></li>
+            <li><a href="/logout" class="navtext" >Logout</a></li>
+            <li style="float:right;" ><form action="/search" method="GET">
+              <input type="submit" value="Search" class="searchbtn">
+              <input type=text name="searchuser" placeholder="Search Friend" class="search" required >
+                  
+                   </form>
+            </li>
+     
+          </ul>
+        </div>
+    <h1 style="font-family: sans-serif;">Hi! <%= user.FName %></h1>
+
 
     <% }) %>
 
-    <br><br>
-    <iframe src="/wallposts" width="100%" height="100%"   style="border:none"></iframe>
+    
+    <iframe src="/wallposts" width="100%" height="100%"   style="border:none;"></iframe>
 
+    </body>
     
 </html>

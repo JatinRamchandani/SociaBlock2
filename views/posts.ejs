@@ -9,6 +9,10 @@
         background-color:rgb(18, 67, 214);
       }
 
+      body{
+        background-color: rgb(241, 241, 241);
+      }
+
       li{
         float: left;
       }
@@ -33,28 +37,139 @@
         font-family: Arial, Helvetica, sans-serif;
         color: white;
       }
+
+      .arrange{
+        display:flex;
+        padding-top: 2em;
+      }
+
+      .box1{
+
+          width: 100%;
+          height:auto;
+          float:none;
+          padding:5px;
+          border-top-left-radius: 28px;
+          border: 1px rgba(19, 20, 20, 0.658) solid;
+          font-family: sans-serif;
+          font-weight:400;
+          background-color: white;
+          position: relative;
+        }
+
+
+      .box1 img{
+        max-width: 100%;
+      
+      }
+
+
+      
+
+
+      .email-display{
+        font-size: 16px;
+        font-weight: bold;
+        background-color: rgb(212, 211, 211);
+        margin-bottom: 6px;
+        width: fit-content;
+        padding:5px;
+        font-family: sans-serif;
+      }
+
+      #button{
+          background-color: royalblue;
+          border-color: royalblue;
+          color: white;
+          
+        }
+
+      .box1 button{
+        width: 50%;
+        font-family: sans-serif;
+        color:rgb(105, 102, 102);
+        background-color: white;
+        padding:1.5%;
+        border: none;
+        
+      }
+
+      .box1 button:hover{
+        background-color: rgb(212, 211, 211);
+      }
+
+      .allposts{
+        width: 50%;
+        height: fit-content;
+        
+      }
+    
+
+      table{
+        width: 100%;
+      }
         </style>
 
     </head>
-    <ul>
+    <!-- <ul>
         <li><a href="#" class="navtext">SociaBlock</a></li>
         <li>   </li>
         <li><a href="#" class="navtext">My Profile</a></li>
         <li><a href="#" class="navtext">Add Post</a></li>
     </ul>
-    <h1>Post Area</h1>
+    <h1>Post Area</h1> -->
 
    
 
-        <table border="0" cellspacing="20">
-        <% allresults.forEach(function (result) { %>
+       <body>
 
-        <tr>
-            <th><%= result.Email %></th>
-            <td><%= result.Post %></td>
-        </tr>
+        <div class="allposts">
+          <% allresults.forEach(function (result) { %>
+          <!-- <div class="arrange">
+              <img src="/images/<%= result.profilephoto %>"  style="width:inherit;height:40px;border-radius: 50%;" ><br>
+              <div style="padding-left:20px;">
+                <div class="email-display">
+                  <%= result.Username %><br>
+                </div>
+                <div class="box1">
+                  <%= result.Post %>
+              </div>
+            </div>
+          </div> -->
+          <br>
+
+          <div class="box1">
+
+          <table>
+            
+            <tr>
+              <td style="width:40px;"><img src="/images/<%= result.profilephoto %>"  style="width:inherit;height:40px;border-radius: 50%;" ><br></td>
+              <td><div class="email-display"> <%= result.Username %><br><span style="font-family: sans-serif;font-weight: 400;font-size: 14px"><%= result.Time %></span></div></td>
+            </tr>
+            <tr>
+              <td colspan=2><hr><%= result.Post %></td>
+            </tr>
+            <tr>
+              <td colspan=2><img src="/images/<%= result.PostImage %>" alt=""></td>
+            </tr>
+            <tr>
+              <td colspan=2>
+            </td>
+            </tr>
+            <tr>
+              <td colspan="3"><hr><button>Like</button><button>Comment</td>
+            </tr>
+          </table>
+        </div>
+        
         <% }) %>
         </table>
+
+      </div>
+
+       </body>
+
+
         
 
        

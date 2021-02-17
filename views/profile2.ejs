@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Post</title>
-    <script>
-                function openNav() {
-        document.getElementById("myNav").style.width = "20%" ;
-        }
+<Html>
 
-        /* Close when someone clicks on the "x" symbol inside the overlay */
-        function closeNav() {
-        document.getElementById("myNav").style.width = "0%";
-        }
-    </script>
-    <style>
+    <head>
+     
+    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+  
         ul {
             list-style-type: none;
             overflow:hidden;
@@ -194,17 +184,23 @@
             
         }
 
-    </style>
-</head>
-
-<body>
 
 
-    <div class="Nav">
+        
+         </style>
+  
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+      
+      <br>
+  
+       <% username.forEach(function (user) { %>
+  
+      <div class="Nav">
         <ul>
-          <li><a href="/wall" class="navtext"  >SociaBlock</a></li>
-          <li><a href="/profile3" class="navtext">My Profile</a></li>
-          <li><a href="/addPosts" class="navtext"  id="active" >Add Post</a></li>
+          <li><a href="/wall" class="navtext"   >SociaBlock</a></li>
+          <li><a href="/profile2" class="navtext" id="active">My Profile</a></li>
+          <li><a href="/addPosts" class="navtext" >Add Post</a></li>
           <li><a href="/logout" class="navtext" >Logout</a></li>
           <li style="float:right;" ><form action="/search" method="GET">
             <input type="submit" value="Search" class="searchbtn">
@@ -214,11 +210,54 @@
           </li>
    
         </ul>
-      </div><br><br>
-    <form action="/storePost" method="POST" enctype="multipart/form-data">
-        <textarea  name="Post" rows="20" cols="60" placeholder="Write here"></textarea><br>
-        <input type="file" name="image" accept="image/*" ><br><br>
-        <input type="submit" value="Add Post">
-    </form>
-</body>
-</html>
+      </div>
+
+
+
+      <div class="profile">
+        <div class="photo-info">
+            <img src="/images/<%= user.Profiles %>" >
+            <form method="POST" action="/upload/<%= user.Email %>"   enctype="multipart/form-data">
+                <input type="file" name="image" required>
+                <input type="submit" value="edit"></form>
+               <div class="box">
+               <h2> <%= user.FName %>  <%= user.LName %></h2>
+                <span style="font-weight: bold;font-size: 15px;"> Email :</span> <%= user.Email %>
+               </div>
+        </div>
+        <div class="moretab">
+            <div id="box3">
+                <ul>
+                  <li><a href="/photos/<%= user.Email %>/<%= user.Profiles %>"   class="navtext" target="inprofile">Photos</a></li>
+                  <li><a href="/videos" class="navtext" target="inprofile">Videos</a></li>
+                  <li><a href="/myposts/<%= user.Email %>"   class="navtext" target="inprofile">Posts</a></li>
+                </ul>
+                <iframe style="border:none;width: 100%;height:100%;" name="inprofile"></iframe>
+              </div>
+        </div>
+      </div>
+  
+      
+  
+          <!-- <div id="box3">
+            <ul>
+              <li><a href="/photos/<%= user.Email %>/<%= user.Profiles %>"   class="navtext" target="inprofile">Photos</a></li>
+              <li><a href="/videos" class="navtext" target="inprofile">Videos</a></li>
+              <li><a href="/myposts/<%= user.Email %>"   class="navtext" target="inprofile">Posts</a></li>
+            </ul>
+            <iframe   width="100%" height="200%"   style="border:none" name="inprofile"></iframe>
+          </div>
+  
+          <div id="box4">
+            
+          </div> -->
+            <% }) %> 
+
+
+
+
+        <!-- <div class="profile">
+        </div>
+
+      
+  </Html>

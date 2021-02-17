@@ -2,6 +2,10 @@
 <head>
     <style>
 
+        *{
+            font-family: sans-serif;
+        }
+
         .arrange{
         
             float: left;
@@ -19,11 +23,15 @@
             color: white;
             
         }
+        H1{
+            font-family: sans-serif;
+        }
+    
     </style>
 </head>
-    <H1><%= username %>'s photos</H1>
+    <H1>Photos</H1>
     <form method="POST" action="/uploadphotos/<%= username %>/<%= userphoto %>"   enctype="multipart/form-data">
-        <input type="file" name="image" required  value="Choose image">
+        <input type="file" name="image" required  value="Choose image" accept="image/*">
         <input type="text" name="capt">
         <input type="submit" value="Upload New">  
     </form>
@@ -36,6 +44,9 @@
       <div class="box1">
         <img src="/images/<%= a.Image %>"   style="width:inherit;height: 200px">
         <form method=post action="/images/delete/<%= username %>/<%= userphoto %>/<%= a.Image %>"><input type=submit id="button" value="Delete"></form>
+        <p>
+            <%= a.Caption %>
+        </p>
       </div>
     </div>
 

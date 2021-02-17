@@ -1,0 +1,238 @@
+<html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow:hidden;
+        background-color:rgb(18, 67, 214);
+        position: sticky;
+        position: -webkit-sticky;
+        top:0;
+        z-index: 3;
+      }
+
+      li{
+        float: left;
+      }
+
+      li a{
+        display:block;
+        color:white;
+        text-align: center;
+        text-decoration: none;
+        padding: 14px 16px;
+
+      }
+
+      li a:hover{
+        background-color: rgb(4, 39, 145);
+      }
+      #active {
+        background-color: rgb(4, 39, 145);
+      }
+
+      .navtext{
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+      }
+      @viewport {
+        width: device-width ;
+        zoom: 1.0 ;
+      }
+
+      .search{
+            float: right;
+            padding: 13px;
+            border: none;
+            margin-top: 0px;
+            font-size: 17px;
+            
+        }
+        .searchbtn{
+            float: right;
+            padding: 13px;
+            border: none;
+            margin-top: 0px;
+            font-size: 17px;
+            font-family: sans-serif;
+            cursor: pointer;
+        }
+
+        #box1{
+          background-color: royalblue;
+          z-index: -1;
+          margin-top: 20;
+          width:100%;
+          height:35%;
+          position: relative;
+        }
+  
+     
+  
+        #box2{
+          margin-left:40 ;
+          margin-top: 5px;
+          height: fit-content;
+          width: fit-content;
+          padding: 5px;
+          text-indent: 10px;
+          position: relative;
+          z-index: -1;
+        }
+       
+        img{
+        
+          width: 200px;
+          height: 200px;
+          position: relative;
+          border-radius: 50%;
+          margin-top:30%;
+          margin-left: 15%;
+
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+
+        .photo-info form{
+            position: relative;
+            margin-top:0%;
+            margin-left: 15%;
+        }
+
+
+        .box{
+            font-family: sans-serif;
+            margin-left: 15%;
+        }        
+        
+  
+        .search{
+            float: right;
+            padding: 13px;
+            border: none;
+            margin-top: 0px;
+            font-size: 17px;
+            
+        }
+        .searchbtn{
+            float: right;
+            padding: 13px;
+            border: none;
+            margin-top: 0px;
+            font-size: 17px;
+            font-family: sans-serif;
+            cursor: pointer;
+        }
+
+         .profile{
+            
+            
+             height: 100%;
+             width: 80%;
+             top: 0;
+             left: 10%;
+             position: relative;
+             
+             
+         }
+         .photo-info{
+            
+             height: 100%;
+             width: 25%;
+             top: 0;
+             position:relative;
+             overflow:auto;
+             background-color: rgb(224, 229, 241);
+             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+         }
+         .moretab{
+            
+             height: 100%;
+             width: 80%;
+             left:23%;
+             top: 0;
+             position:absolute;
+             overflow: auto;
+         }
+
+         #box3{
+            margin-top: 10px;
+            position: absolute;
+            height:100%;
+            width: 100%;   
+            margin-left:30px;
+            z-index: 2;
+        }
+
+      
+        </style>
+
+    </head>
+    <body>
+      <% username.forEach(function (user) { %>
+        
+        
+          <ul>
+            <li><a href="/wall" class="navtext" >SociaBlock</a></li>
+            <li><a href="/profile3" class="navtext"  id="active">My Profile</a></li>
+            <li><a href="/addPosts" class="navtext" >Add Post</a></li>
+            <li><a href="/logout" class="navtext" >Logout</a></li>
+            <li style="float:right;" ><form action="/search" method="GET">
+              <input type="submit" value="Search" class="searchbtn">
+              <input type=text name="searchuser" placeholder="Search Friend" class="search" required >
+                  
+                   </form>
+            </li>
+     
+          </ul>
+        
+   
+
+        <div class="profile">
+            <div class="photo-info">
+                <img src="/images/<%= user.Profiles %>" >
+                <form method="POST" action="/upload/<%= user.Email %>"   enctype="multipart/form-data">
+                    <input type="file" name="image" required>
+                    <input type="submit" value="edit"></form>
+                   <div class="box">
+                   <h2> <%= user.FName %>  <%= user.LName %></h2>
+                    <span style="font-weight: bold;font-size: 15px;"> Email :</span> <%= user.Email %>
+                   </div>
+            </div>
+            <div class="moretab">
+                <div id="box3">
+                    <ul>
+                      <li><a href="/photos/<%= user.Email %>/<%= user.Profiles %>"   class="navtext" target="inprofile">Photos</a></li>
+                      <li><a href="/videos" class="navtext" target="inprofile">Videos</a></li>
+                      <li><a href="/myposts/<%= user.Email %>"   class="navtext" target="inprofile">Posts</a></li>
+                    </ul>
+                    <iframe style="border:none;width: 100%;height:100%;" name="inprofile"></iframe>
+                  </div>
+            </div>
+          </div>
+      
+          
+      
+              <!-- <div id="box3">
+                <ul>
+                  <li><a href="/photos/<%= user.Email %>/<%= user.Profiles %>"   class="navtext" target="inprofile">Photos</a></li>
+                  <li><a href="/videos" class="navtext" target="inprofile">Videos</a></li>
+                  <li><a href="/myposts/<%= user.Email %>"   class="navtext" target="inprofile">Posts</a></li>
+                </ul>
+                <iframe   width="100%" height="200%"   style="border:none" name="inprofile"></iframe>
+              </div>
+      
+              <div id="box4">
+                
+              </div> -->
+                <% }) %> 
+
+   
+
+    </body>
+    
+</html>

@@ -19,28 +19,33 @@
             color: white;
             
         }
+
+        video{
+            max-width: 70%;
+        }
         H1{
             font-family: sans-serif;
         }
-    
     </style>
 </head>
+    <H1>Videos</H1>
     
-
-    <H1>Photos</H1>
-    <br>
-    <img src="/images/<%= userphoto %>"  style="width:inherit;height: 200px" ><br>
-    <div class="arrange">
+  
         <% all.forEach(function (a) { %>
       <div class="box1">
-        <img src="/images/<%= a.Image %>"   style="width:inherit;height: 200px">
+        <video controls>
+            <source src="/videos/<%= a.Video %>"   style="width:inherit;height:200px" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+          </video>
+         
+  
     </div>
     </div>
 
 
 
     <% }) %>
-
 
 
     
